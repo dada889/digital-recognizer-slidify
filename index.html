@@ -8,22 +8,35 @@
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+  <link rel="stylesheet" href="../../libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="../../libraries/frameworks/io2012/css/phone.css" 
     media="only screen and (max-device-width: 480px)" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+  <link rel="stylesheet" href="../../libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="../../libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="../../libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="../../libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="../../libraries/widgets/interactive/css/aceeditor.css"></link>
+<link rel=stylesheet href="../../libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="../../libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/custom.css"></link>
 
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
-  <script data-main="libraries/frameworks/io2012/js/slides" 
-    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  <script>window.jQuery || document.write('<script src="../../libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="../../libraries/frameworks/io2012/js/slides" 
+    src="../../libraries/frameworks/io2012/js/require-1.0.8.min.js">
   </script>
   
-  
+  <script src="../../libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="../../libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="../../libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="../../libraries/widgets/nvd3/js/fisheye.js"></script>
+<script src="../../libraries/widgets/highcharts/js/jquery-1.9.1.min.js"></script>
+<script src="../../libraries/widgets/highcharts/js/highcharts.js"></script>
+<script src="../../libraries/widgets/highcharts/js/highcharts-more.js"></script>
+<script src="../../libraries/widgets/highcharts/js/exporting.js"></script>
+
 
 </head>
 <body style="opacity: 0">
@@ -33,92 +46,466 @@
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
     <h1>手写数字识别器</h1>
-    <h2>简单神经网络模型</h2>
+    <h2>人工神经网络模型</h2>
     <p>htt<br/></p>
   </hgroup>
   <article></article>  
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
 </slide>
     
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>数据和模型</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <h3>模型</h3>
+
+<p>人工神经网络（ANN）是一种模仿生物神经网络的结构和功能的数学模型或计算模型。神经网络由大量的人工神经元联结进行计算。大多数情况下人工神经网络能在外界信息的基础上改变内部结构，是一种自适应系统。现代神经网络是一种非线性统计性数据建模工具，常用来对输入和输出间复杂的关系进行建模，或用来探索数据的模式。</p>
+
+<h3>数据</h3>
+
+<p>我们将使用ANN模型进行手写数字识别。我们使用的数据是著名的<a href="https://www.kaggle.com/c/digit-recognizer/data">MNIST 数据</a>。MNIST数据是一张张28X28像素的手写数字图片。每个像素由一个像素值代表这个像素的明暗程度，更高的数值代表更暗。</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="class" id="id" style="background:;">
+<slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>可视化部分数据</h2>
   </hgroup>
   <article data-timings="">
-    <p>this is test</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class3" id="id" style="background:;">
-  <hgroup>
-    <h2>Slide 3</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="">
-  <hgroup>
     
-  </hgroup>
-  <article>
-    <hr noshade size=4 color='red'>  
-      
-    <div class='left' style='float:left;width:48%'>
-     
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     
-    </div>
+<div style='float:left;width:50%;' >
+  <p>我们使用以下代码可视化部分样本数据</p>
+
+<pre><code class="r">require(graphics)
+
+flip = function(x) {
+  xx=matrix(0,nrow(x),ncol(x))
+  for (i in (1:nrow(x))){
+    xx[i,] = rev(x[i,])}
+  return(xx)}
+
+sample_plot = function(x,n) {
+  xx = list()
+  par(mfrow=c(sqrt(n), sqrt(n)),mar=rep(0.2,4))
+  for (i in 1:n) {
+    temp = as.numeric(x[i,])
+    temp = matrix(temp,28,28)
+    xx[[i]] = flip(temp)
+    image(z=xx[[i]], col=gray.colors(12),xaxt=&#39;n&#39;,yaxt=&#39;n&#39;,ann=FALSE)
+  }}
+
+sample_p &lt;- read.csv(&quot;data\train.csv&quot;, header=TRUE,nrows=100)
+sample_p = sample_p[,-1]
+sample_plot(sample_p,16)
+</code></pre>
+
+</div>
+<div style='float:right;width:50%;'>
+  <p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+</div>
+<div>
+  
+</div>
   </article>
+  <!-- Presenter Notes -->
 </slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>ANN的向前传播</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>我们使用单层ANN模型。右上角括号内的数字代表变量所在的层，在本模型（单层ANN模型）中0代表输入层，1代表隐藏层，2代表输出层。\(X^{(0)}\) 是我们的原始数据（手写数字图片），一行784（28X28）列的数据。\(f_{\theta}(a)\) 是一个sigmoid函数。\(a\) 是隐藏层的变量，\(z\) 是通过sigmoid函数后的隐藏层变量。\(\Theta^{(l)}_0\) 是输入层和隐藏层的偏项。\(\widehat{Y}\) 是我们的预测值，一个数值介于0到1之间的一行十列的矩阵。当这矩阵中最大值处在第三列时，我们对这图片的预测结果便是3。</p>
+
+<div style='float:left;width:50%;' >
+  <p>\[
+a^{(1)} = \Theta^{(1)}_0+X^{(0)}(\Theta^{(1)})^T
+\]</p>
+
+<p>\[
+z^{(1)} = f_{\theta}(a^{(1)})
+\]</p>
+
+<p>\[
+a^{(2)} = \Theta^{(2)}_0+z^{(1)}(\Theta^{(2)})^T
+\]</p>
+
+<p>\[
+\hat{Y} = f_{\theta}(a^{(2)})
+\]</p>
+
+</div>
+<div style='float:right;width:50%;'>
+  <p>相关代码:</p>
+
+<pre><code class="r">  a1 = cbind(1,data)
+  z2 = a1%*%t(Theta1)
+  a2 = cbind(1,sigmoid(z2))
+  z3 = a2%*%t(Theta2)
+  h = sigmoid(z3)
+
+  ny = matrix(0, length(y),num_labels)
+  for (i in 1:length(y)){
+    ny[i,y[i]] = 1
+  }
+</code></pre>
+
+</div>
+<div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>ANN的成本函数</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>对于分类问题，我们使用Cross entropy成本函数，这是模型的成本函数：</p>
+
+<p>\[
+J(\Theta)= -\frac{1}{m}  \left[  \sum^m_i \sum^{10}_k y^{(i)}_{k}log f_\theta (z^{(i)})_{k}+ (1-y^{(i)}_k ) log( 1- f_\theta (z^{(i)})_{k} )  \right]
+\]</p>
+
+<p>或简化版：</p>
+
+<p>\[
+J(\Theta)= -\frac{1}{m} \sum^m_i \sum^{10}_k y^{(i)}_{k}log f_\theta (z^{(i)})_{k}      
+\]</p>
+
+<p>我们的目标就是通过改变 \(\Theta\) 来最小化成本函数 \(J(\Theta)\) .</p>
+
+<p>相关代码：</p>
+
+<pre><code class="r">  regu = lambda*(sum(Theta1[,-1]^2)+sum(Theta2[,-1]^2))/(2*m)
+  cost = -sum(ny*log(h)+(1-ny)*log(1-h))/m+regu
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>ANN的反向传播</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>根据成本函数，我们可以得到 \(\Theta^{(1)}\) 和 \(\Theta^{(2)}\) 的导数。得到导数之后，使用梯度下降法来求出 \(J(\Theta)\) 的本地最小值。</p>
+
+<div style='float:left;width:50%;' >
+  <p>公式推导：
+\[
+\frac{\partial J(\Theta)}{\partial \Theta^{(2)}} =  \frac{\partial f_{\theta}(a^{(2)})}{\partial a^{(2)}} \frac{\partial a^{(2)}}{\partial \Theta^{(2)}}
+\]</p>
+
+<p>\[
+\frac{\partial J(\Theta)}{\partial \Theta^{(2)}} =  (y-f_{\theta}(a^{(2)}))z^{(1)}
+\]</p>
+
+<p>\[
+\frac{\partial J(\Theta)}{\partial \Theta^{(1)}} =  \frac{\partial f_{\theta}(a^{(2)})}{\partial a^{(2)}} \frac{\partial a^{(2)}}{\partial \Theta^{(2)}} \frac{\partial f_{\theta}(a^{(1)})}{\partial a^{(1)}} \frac{\partial a^{(1)}}{\partial \Theta^{(1)}}
+\]</p>
+
+<p>\[
+\frac{\partial J(\Theta)}{\partial \Theta^{(1)}} = \frac{\partial J(\Theta)}{\partial \Theta^{(2)}} \frac{\partial f_{\theta}(a^{(1)})}{\partial a^{(1)}} X^{(0)}
+\]</p>
+
+</div>
+<div style='float:right;width:50%;'>
+  <p>相关代码：</p>
+
+<pre><code class="r">  delta3 = h-ny
+  delta2 = (delta3%*%Theta2[,-1])*sigmoidGradient(z2)
+  thres1 = matrix(1,nrow(Theta1),ncol(Theta1))
+  thres1[,1] = 0
+  thres2 = matrix(1,nrow(Theta2),ncol(Theta2))
+  thres2[,1] = 0
+  Theta1_grad = (t(delta2)%*%a1)/m + thres1*Theta1*lambda/m
+  Theta2_grad = (t(delta3)%*%a2)/m + thres2*Theta2*lambda/m
+</code></pre>
+
+</div>
+<div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>ANN的R代码实现</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:50%;' >
+  <p>将之前三部分合并起来就是ANN的主要实现代码。</p>
+
+<p>右边这个函数输入变量包括：data 、 y、  h_layer、  lambda、  num_labels</p>
+
+<ul>
+<li>data是训练数据矩阵，每一行代表一个数据。</li>
+<li>y是训练数据的真确结果，每一行代表一个数据。</li>
+<li>h_layer是隐藏层的变量个数，默认15。</li>
+<li>num_labels是输出结果的变量个数，或者数据的类别数。</li>
+<li>lambda是过拟合控制变量。</li>
+</ul>
+
+<p>输出变量包括：cost、 h、 grad</p>
+
+<ul>
+<li>cost是对应的成本函数值。</li>
+<li>h是对应输出层的值。</li>
+<li>grad是\(\Theta^{(1)}\) 和 \(\Theta^{(2)}\) 的导数，用于优化成本函数。</li>
+</ul>
+
+</div>
+<div style='float:right;width:50%;'>
+  <pre><code class="r">NN_cost = function(data, y, init, h_layer=15, lambda=0, num_labels=10) {
+  m = nrow(data)
+  # reshape Theta1 and Theta2
+  in_layer = ncol(data)
+  par_t1 = init[c(1:((in_layer+1)*h_layer))]
+
+  par_t2 = init[c(((in_layer+1)*h_layer+1):length(init))]
+  Theta1 = matrix(par_t1,h_layer,in_layer+1)
+  Theta2 = matrix(par_t2,num_labels,h_layer+1)
+  # forward propagation
+  a1 = cbind(1,data)
+  z2 = a1%*%t(Theta1)
+  a2 = cbind(1,sigmoid(z2))
+  z3 = a2%*%t(Theta2)
+  h = sigmoid(z3)
+
+  ny = matrix(0, length(y),num_labels)
+  for (i in 1:length(y)){
+    ny[i,y[i]] = 1
+  }
+
+  cost = -sum(ny*log(h)+(1-ny)*log(1-h))/m+lambda*(sum(Theta1[,-1]^2)+sum(Theta2[,-1]^2))/(2*m)
+  # back propagation
+  delta3 = h-ny
+  delta2 = (delta3%*%Theta2[,-1])*sigmoidGradient(z2)
+  thres1 = matrix(1,nrow(Theta1),ncol(Theta1))
+  thres1[,1] = 0
+  thres2 = matrix(1,nrow(Theta2),ncol(Theta2))
+  thres2[,1] = 0
+  Theta1_grad = (t(delta2)%*%a1)/m + thres1*Theta1*lambda/m
+  Theta2_grad = (t(delta3)%*%a2)/m + thres2*Theta2*lambda/m
+
+  result = list(cost=cost,h=h,grad=list(t1=Theta1_grad,t2=Theta2_grad))
+  return(result)
+}
+</code></pre>
+
+</div>
+<div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>ANN模型训练</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:50%;' >
+  <ul>
+<li><p>首先我们随机选取出70%的数据作为训练数据</p></li>
+<li><p>对训练数据进行预处理和归一化</p></li>
+<li><p>建立训练函数和起始值</p></li>
+<li><p>最后使用fmincg函数对模型进行最优化，因为fmincg比我自己写的梯度下降法效率更高。fmincg是Andrew Ng在machine learning在线课程里面使用的优化算法之一，由matlab写成，我使用R重新将它写一遍。具体代码见<a href="https://github.com/dada889/digital-recognizer-slidify/blob/master/code/fmincg.R">fmincg</a></p></li>
+</ul>
+
+</div>
+<div style='float:right;width:50%;'>
+  <pre><code class="r">data_all &lt;- read.csv(&quot;train.csv&quot;, header=TRUE)
+train_size = floor(0.7*nrow(data_all))
+train_indx = sample(seq_len(nrow(data_all)), size = train_size)
+</code></pre>
+
+<pre><code class="r">data = data_all[train_indx,]
+train = data[,-1]
+train = data.matrix(train)
+y = data$label
+y=replace(y,y==0,10)
+train_nl = (train-125)/255
+</code></pre>
+
+<pre><code class="r">h_layer=25
+t1_epsilon = sqrt(6)/sqrt(ncol(train)+h_layer)
+t2_epsilon = sqrt(6)/sqrt(h_layer+10)
+t1_random = matrix(runif((ncol(train)+1)*25,0,1),25,(ncol(train)+1))
+t2_random = matrix(runif(26*10,0,1),10,26)
+t1_random = t1_random*2*t1_epsilon - t1_epsilon
+t2_random = t2_random*2*t2_epsilon - t2_epsilon
+ini = c(as.vector(t1_random),as.vector(t2_random))
+lambda=1
+costFunction = function(p) {
+  result = NN_cost(train_nl,y,p,lambda=lambda)
+  J = result$cost
+  grad = c(as.vector(result$grad$t1),as.vector(result$grad$t2))
+  grad = as.matrix(grad,length(grad),1)
+  return(list(J=J,grad=grad))
+}
+</code></pre>
+
+<pre><code class="r">optimization = fmincg(f=costFunction, X=par, Maxiter=500)
+</code></pre>
+
+</div>
+<div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>结果检测</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>优化完成后，可以用以下函数测试优化结果。</p>
+
+<ul>
+<li>t就是最小化成本函数的\(\Theta^{(1)}\) 和 \(\Theta^{(2)}\) </li>
+<li>data是检测的数据</li>
+<li>y是正确输出值</li>
+</ul>
+
+<pre><code class="r">check_accurate = function(data, y, t, h_layer=25,lambda,num_labels=10) {
+  fit_model = NN_cost(data,y,init=t,h_layer,lambda=lambda,num_labels)
+  fit_matirx = fit_model$h
+  fit_values = apply(fit_matirx,1,which.max)
+  fit_values = as.vector(fit_values)
+  y = as.vector(y)
+  accurate = sum(fit_values==y)/length(y)
+  result = list(fit = fit_values, acu = accurate)
+  return(result)
+}
+</code></pre>
+
+<p>将剩余数据分为测试数据和验证数据</p>
+
+<pre><code class="r">test_valid_data = data_all[-train_indx,]
+test_size = floor(0.7*nrow(test_valid_data))
+test_ind = sample(seq_len(nrow(test_valid_data)), size = test_size)
+test_data = test_valid_data[test_ind,]
+valid_data = test_valid_data[-test_ind,]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>结果检测</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>分别对测试数据和验证数据进行处理</p>
+
+<pre><code class="r">#### set up test set
+test = test_data[,-1]
+test = data.matrix(test)
+test_y = test_data$label
+test_y = replace(test_y,test_y==0,10)
+
+test_nl = (test-125)/255
+
+test_accurate = check_accurate(test_nl,test_y,par,lambda=lambda)
+test_accurate$acu
+
+#### set up valid set
+valid = valid_data[,-1]
+valid = data.matrix(valid)
+valid_y = valid_data$label
+valid_y = replace(valid_y,valid_y==0,10)
+
+valid_nl = (valid-125)/255
+
+valid_accurate = check_accurate(valid_nl,valid_y,par,lambda=lambda)
+valid_accurate$acu
+</code></pre>
+
+<p>完整分析代码见<a href="https://github.com/dada889/digital-recognizer-slidify/blob/master/code/1levelNN.R">github</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
     <slide class="backdrop"></slide>
   </slides>
   <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='数据和模型'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='可视化部分数据'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='ANN的向前传播'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Two Columns'>
+        data-slide=4 title='ANN的成本函数'>
          4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='ANN的反向传播'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='ANN的R代码实现'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='ANN模型训练'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='结果检测'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='结果检测'>
+         9
       </a>
     </li>
   </ul>
@@ -130,7 +517,15 @@
   <![endif]-->
 </body>
   <!-- Load Javascripts for Widgets -->
-  
+  <script src="../../libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="../../libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="../../libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="../../libraries/widgets/quiz/js/quiz-app.js"></script>
+<script src="../../libraries/widgets/interactive/js/ace/js/ace.js"></script>
+<script src="../../libraries/widgets/interactive/js/interactive.js"></script>
+<script src="test.js"></script>
+
   <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -143,10 +538,22 @@
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   </script> -->
-  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
 </script>
-<!-- LOAD HIGHLIGHTER JS FILES -->
-  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  
+  <script src="shared/shiny.js" type="text/javascript"></script>
+  <script src="shared/slider/js/jquery.slider.min.js"></script>
+  <script src="shared/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="shared/slider/css/jquery.slider.min.css"></link>
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="../../libraries/highlighters/highlight.js/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <!-- DONE LOADING HIGHLIGHTER JS FILES -->
    
